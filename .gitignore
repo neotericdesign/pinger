@@ -6,3 +6,4 @@ db/*.sqlite3
 public/upload/*
 coverage/*
 features_rcov/
+rerun.txt
