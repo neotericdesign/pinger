@@ -1,0 +1,8 @@
+.DS_Store
+log/*.log
+tmp/**/*
+config/database.yml
+db/*.sqlite3
+public/upload/*
+coverage/*
+features_rcov/
