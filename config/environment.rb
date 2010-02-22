@@ -7,6 +7,11 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+  config.gem 'tabletastic', :version => '~>0.1.3'
+  config.gem 'formtastic', :version => '~>0.9.7'
+  config.gem 'validation_reflection'
+  config.gem 'remarkable_rails', :version => '~>3.1.12'
+  config.gem 'inherited_resources', :version => '~>1.0.1'
   config.gem 'hoptoad_notifier', :version => '~>2.2.0'
   config.gem 'will_paginate'
   # Settings in config/environments/* take precedence over those specified here.
