@@ -1,7 +1,16 @@
 <% title "Sites" %>
 
 <% table_for(@sites) do |t| %>
-  <%= t.data :name, :url, :keystone, :actions => :all %>
+  <% t.data :actions => :all do
+    t.cell :name
+    t.cell :url
+    t.cell :keystone
+    t.cell :last_attempt, :cell_html => {:class => 'last_attempt_message'}
+    t.cell :last_attempted_at, :cell_html => {:class => 'last_attempt_at'}
+    t.cell :check_now, :heading => '', :cell_html => {:class => 'actions check'}  do |s|
+       link_to "Check!", check_site_path(s)
+    end
+  end %>
 <% end %>
 
 <p><%= link_to "New Site", new_site_path %></p>

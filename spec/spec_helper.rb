@@ -17,6 +17,7 @@ Spork.prefork do
     config.use_instantiated_fixtures  = false
     config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
     config.mock_with :mocha
+    config.ignore_backtrace_patterns(/spork/)
   end
 end
 
