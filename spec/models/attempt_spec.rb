@@ -1,3 +1,16 @@
+# == Schema Information
+# Schema version: 20100223164754
+#
+# Table name: attempts
+#
+#  id         :integer         not null, primary key
+#  site_id    :integer
+#  success    :boolean
+#  status     :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'spec/spec_helper'
 
 describe Attempt do

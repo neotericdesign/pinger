@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 20100223164754
+#
+# Table name: sites
+#
+#  id          :integer         not null, primary key
+#  url         :string(255)
+#  keystone    :text
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 require 'spec/spec_helper'
 
 describe Site do
