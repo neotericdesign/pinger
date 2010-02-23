@@ -1,0 +1,24 @@
+<% title "Site" %>
+
+<p>
+	<strong>Url:</strong>
+	<%=h @site.url %>
+</p>
+<p>
+	<strong>Keystone:</strong>
+	<%=h @site.keystone %>
+</p>
+<p>
+	<strong>Name:</strong>
+	<%=h @site.name %>
+</p>
+<p>
+	<strong>Description:</strong>
+	<%=h @site.description %>
+</p>
+
+<p>
+	<%= link_to "Edit", edit_site_path(@site) %> |
+	<%= link_to "Destroy", @site, :confirm => 'Are you sure?', :method => :delete %> |
+	<%= link_to "View All", sites_path %>
+</p>

@@ -1,0 +1,7 @@
+<% title "Sites" %>
+
+<% table_for(@sites) do |t| %>
+  <%= t.data :name, :url, :keystone, :actions => :all %>
+<% end %>
+
+<p><%= link_to "New Site", new_site_path %></p>

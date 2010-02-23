@@ -1,0 +1,50 @@
+body {
+	background-color: #f0f0f9;
+}
+
+#container {
+	border: 1px solid #ddd;
+	background: white;
+	padding: 15px 20px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+/* Forms */
+form.formtastic fieldset ol li { margin-bottom:1.5em; list-style:none }
+form.formtastic label { display: block ;}
+form.formtastic fieldset ol li p.inline-hints { color:#666; margin:0.5em 0 0 25%; }
+form.formtastic fieldset ol li p.inline-errors { color:#cc0000; margin:0.5em 0 0 25%; }
+form.formtastic fieldset ol li.boolean label { padding-left:25%; width:auto; }
+form.formtastic fieldset ol li.boolean label input { margin:0 0.5em 0 0.2em; }
+
+.string input { padding:5px }
+textarea[rows] { height:auto }
+button { float:none }
+
+/* Tables */
+td.actions {
+	font-size: 10px;
+	width: 35px;
+}
+
+td.actions a { color: #888 }
+td.actions a:hover { color: #333; text-decoration:underline }
+
+td.destroy_link { width: 45px }
+td.edit_link { width: 30px }

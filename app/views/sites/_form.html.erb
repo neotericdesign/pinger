@@ -1,0 +1,10 @@
+<% semantic_form_for @site do |form| %>
+	<% form.inputs do %>
+		<%= form.input :name, :input_html => { :class => 'title span-8' } %>
+		<%= form.input :url, :label => "URL" %>
+		<%= form.input :keystone, :as => :string %>
+		<%= form.input :description, :input_html => { :rows => 6 } %>
+	<% end %>
+
+	<p><%= button_tag "Save", :class => 'positive' %></p>
+<% end %>
