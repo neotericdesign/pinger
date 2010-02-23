@@ -14,6 +14,7 @@ Rails::Initializer.run do |config|
   config.gem 'hoptoad_notifier', :version => '~>2.2.0'
   config.gem 'will_paginate'
   config.gem 'curb', :version => '~>0.6.6.0'
+  config.gem 'delayed_job', :version => '~>1.8.4'
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
