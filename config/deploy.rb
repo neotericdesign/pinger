@@ -49,11 +49,11 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
   end
-  #
-  # desc "Update the crontab file"
-  # task :update_crontab, :roles => :db do
-  #   run "cd #{current_path} && whenever --update-crontab #{rails_env}"
-  # end
+
+  desc "Update the crontab file"
+  task :update_crontab, :roles => :db do
+    run "cd #{current_path} && whenever --update-crontab #{rails_env}"
+  end
 end
 
 namespace :db do

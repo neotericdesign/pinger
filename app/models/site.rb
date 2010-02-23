@@ -11,4 +11,8 @@ class Site < ActiveRecord::Base
   def check!
     attempts.create(:status => 'queued').perform!
   end
+
+  def self.check_all!
+    self.all.each(&:check!)
+  end
 end
