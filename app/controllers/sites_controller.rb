@@ -11,6 +11,6 @@ class SitesController < InheritedResources::Base
   protected
 
   def collection
-    @sites ||= end_of_association_chain.all(:include => :last_attempt)
+    @sites ||= end_of_association_chain.all(:include => :last_attempt, :order => 'sites.name ASC')
   end
 end
