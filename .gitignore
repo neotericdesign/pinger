@@ -7,3 +7,4 @@ public/upload/*
 coverage/*
 features_rcov/
 rerun.txt
+.cap_tasks~

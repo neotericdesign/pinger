@@ -48,3 +48,28 @@ td.actions a:hover { color: #333; text-decoration:underline }
 
 td.destroy_link { width: 45px }
 td.edit_link { width: 30px }
+
+tr.updating td {
+  color: #aaa;
+  background-color: #eee;
+}
+
+tr .row_ajax_status {
+  position: absolute;
+  height: 20px;
+  width: 300px;
+  margin-left: -150px;
+  line-height: 20px;
+  left: 50%;
+  color: #333;
+  font-weight:bold;
+  background: rgba(255,255,200,0.5);
+  z-index: 99;
+  text-align: center;
+  padding: 3px;
+}
+
+#sites tr {
+  position: relative;
+}
+

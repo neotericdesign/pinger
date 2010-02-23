@@ -31,12 +31,18 @@ $(".actions.check a").click(function(){
   $this.hide();
   var $thisRow = $this.parents('tr:first');
   
+  $thisRow.addClass("updating");
+  $thisRow.append('<div class="row_ajax_status">Updating</div>');
+  
   $.post(this.href, null, function(data){
     var newText = (data.site.last_attempt.success) ? "Successful" : "Error";
     var newDate = data.site.last_attempted_at;
     $thisRow.find('.last_attempt_message').text(newText);
     $thisRow.find('.last_attempt_at').text(newDate);
     $this.show();
+    $thisRow.removeClass("updating");
+    $thisRow.find('.row_ajax_status').fadeOut('fast', function(){ $(this).remove(); });
+    $thisRow.effect('highlight');
   }, 'json');
 
   return false;

@@ -63,7 +63,7 @@ namespace :db do
   end
 end
 
-# after "deploy:symlink", "deploy:update_crontab"
+after "deploy:symlink", "deploy:update_crontab"
 after 'deploy:update_code', 'deploy:symlink_shared'
 
 # Delayed Job callbacks:

@@ -6,7 +6,7 @@
     t.cell :url
     t.cell :keystone
     t.cell :last_attempt, :cell_html => {:class => 'last_attempt_message'}
-    t.cell :last_attempted_at, :cell_html => {:class => 'last_attempt_at'}
+    t.cell :last_attempted_at, :heading => "Last Attempted", :cell_html => {:class => 'last_attempt_at'}
     t.cell :check_now, :heading => '', :cell_html => {:class => 'actions check'}  do |s|
        link_to "Check!", check_site_path(s)
     end

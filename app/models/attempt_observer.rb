@@ -9,6 +9,7 @@ class AttemptObserver < ActiveRecord::Observer
   private
 
   def send_mail_for_attempt(attempt)
+    return unless RAILS_ENV == 'production'
     Pony.mail(:to      => 'servers@neotericdesign.com',
               :subject => subject(attempt),
               :body    => body(attempt),
