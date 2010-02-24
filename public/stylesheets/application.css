@@ -25,7 +25,8 @@ body {
   border: solid 1px #C66;
 }
 
-/* Forms */
+/* @group Forms */
+
 form.formtastic fieldset ol li { margin-bottom:1.5em; list-style:none }
 form.formtastic label { display: block ;}
 form.formtastic fieldset ol li p.inline-hints { color:#666; margin:0.5em 0 0 25%; }
@@ -37,13 +38,20 @@ form.formtastic fieldset ol li.boolean label input { margin:0 0.5em 0 0.2em; }
 textarea[rows] { height:auto }
 button { float:none }
 
-/* Tables */
+/* @end */
+
+/* @group Tables */
+
+td a {
+	color: #444;
+}
+
 td.actions {
 	font-size: 10px;
 	width: 30px;
 }
 
-td.actions a { color: #888 }
+td.actions a { color: #777 }
 td.actions a:hover { color: #333; text-decoration:underline }
 
 td.destroy_link { width: 35px }
@@ -63,7 +71,7 @@ tr .row_ajax_status {
   left: 50%;
   color: #333;
   font-weight:bold;
-  background: rgba(255,255,200,0.5);
+  background: rgba(255, 255, 100, 0.7);
   z-index: 99;
   text-align: center;
   padding: 3px;
@@ -72,4 +80,25 @@ tr .row_ajax_status {
 #sites tr {
   position: relative;
 }
+
+
+#sites .success td {
+  background-color: #dfd;
+}
+
+#sites .success.odd td {
+  background-color: #cfc;
+}
+
+
+#sites .failure td {
+  background-color: #fdd;
+}
+
+#sites .failure.odd td {
+  background-color: #fcc;
+}
+
+
+/* @end */
 

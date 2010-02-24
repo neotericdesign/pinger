@@ -1,16 +1,30 @@
 <% title "Sites" %>
 
-<% table_for(@sites) do |t| %>
-  <% t.data :actions => [:edit, :destroy] do
-    t.cell :name
-    t.cell :url
-    t.cell :keystone
-    t.cell :last_attempt, :cell_html => {:class => 'last_attempt_message'}
-    t.cell :last_attempted_at, :heading => "Last Attempted", :cell_html => {:class => 'last_attempt_at'}
-    t.cell :check_now, :heading => '', :cell_html => {:class => 'actions check'}  do |s|
-       link_to "Check!", check_site_path(s)
-    end
-  end %>
-<% end %>
+<table id="sites">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Keystone (text searched for)</th>
+      <th>Last Result</th>
+      <th>Last Attempt</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sites.each do |site| %>
+      <tr id="site_<%= site.id %>" class="<%= cycle('odd','even') %> site <%= site.last_attempt.try(:success) ? "success" : "failure" %>">
+        <td class="site_name"><%= link_to h(site.name), site.url %></td>
+        <td class="site_keystone"><%= truncate(site.keystone, :length => 20) %></td>
+        <td class="last_attempt_message"><%= site.last_attempt.to_str %></td>
+        <td class="last_attempt_at"><%= site.last_attempted_at %></td>
+        <td class="actions check"><%= link_to "Check!", check_site_path(site) %></td>
+        <td class="actions edit_link"><%= link_to "Edit", edit_site_path(site) %></td>
+        <td class="actions destroy_link"><%= link_to "Destroy", site_path(site), :method => :delete, :confirm => 'Are you sure?' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <p><%= link_to "New Site", new_site_path %></p>
