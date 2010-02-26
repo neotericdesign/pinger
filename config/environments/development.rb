@@ -1,4 +1,6 @@
 # Settings specified here will take precedence over those in config/environment.rb
+# Turn off asset caching in Development
+ENV['RAILS_ASSET_ID'] = ''
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development

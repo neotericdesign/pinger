@@ -1,6 +1,9 @@
+/* @override http://localhost:3000/stylesheets/application.css */
+
 body {
 	background-color: #f0f0f9;
 }
+
 
 #container {
 	border: 1px solid #ddd;
@@ -51,6 +54,12 @@ td.actions {
 	width: 30px;
 }
 
+
+thead th {
+	background: transparent none;
+	border-bottom: 2px solid #8a8;
+}
+
 td.actions a { color: #777 }
 td.actions a:hover { color: #333; text-decoration:underline }
 
@@ -81,6 +90,9 @@ tr .row_ajax_status {
   position: relative;
 }
 
+#sites td {
+	border-bottom: 1px solid #fff;
+}
 
 #sites .success td {
   background-color: #dfd;
