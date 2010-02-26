@@ -35,10 +35,18 @@ $(".actions.check a").click(function(){
   $thisRow.append('<div class="row_ajax_status">Updating</div>');
   
   $.post(this.href, null, function(data){
-    var newText = (data.site.last_attempt.success) ? "Successful" : "Error";
+	var success = data.site.last_attempt.success;
+    var newText = (success) ? "Successful" : "Error";
     var newDate = data.site.last_attempted_at;
     $thisRow.find('.last_attempt_message').text(newText);
     $thisRow.find('.last_attempt_at').text(newDate);
+
+	if (success) {
+		$thisRow.addClass("success").removeClass("failure");
+	} else {
+		$thisRow.addClass("failure").removeClass("success");
+	};
+
     $this.show();
     $thisRow.removeClass("updating");
     $thisRow.find('.row_ajax_status').fadeOut('fast', function(){ $(this).remove(); });

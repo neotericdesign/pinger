@@ -1,0 +1,9 @@
+<tr id="site_<%= site.id %>" class="<%= cycle('odd','even') %> site <%= site.last_attempt.try(:success) ? "success" : "failure" %>">
+  <td class="site_name"><%= link_to h(site.name), site.url %></td>
+  <td class="site_keystone"><%= truncate(site.keystone, :length => 20) %></td>
+  <td class="last_attempt_message"><%= site.last_attempt.try :to_str %></td>
+  <td class="last_attempt_at"><%= site.last_attempted_at %></td>
+  <td class="actions check"><%= link_to "Check!", check_site_path(site) %></td>
+  <td class="actions edit_link"><%= link_to "Edit", edit_site_path(site) %></td>
+  <td class="actions destroy_link"><%= link_to "Destroy", site_path(site), :method => :delete, :confirm => 'Are you sure?' %></td>
+</tr>
