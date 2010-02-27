@@ -7,6 +7,7 @@ Spork.prefork do
   require 'spec/autorun'
   require 'spec/rails'
   require 'remarkable_rails'
+  require 'email_spec'
 
   # Requires supporting files with custom matchers and macros, etc,
   # in ./support/ and its subdirectories.
@@ -18,7 +19,16 @@ Spork.prefork do
     config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
     config.mock_with :mocha
     config.ignore_backtrace_patterns(/spork/)
+    config.include(EmailSpec::Helpers)
+    config.include(EmailSpec::Matchers)
   end
+
+  def stub_remote_activity
+    Curl::Easy.any_instance.stubs(:perform).returns(true)
+    Curl::Easy.any_instance.stubs(:body_str).returns("Response Body")
+    Curl::Easy.any_instance.stubs(:response_code).returns(200)
+  end
+
 end
 
 Spork.each_run do

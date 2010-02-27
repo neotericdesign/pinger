@@ -18,6 +18,7 @@ describe Attempt do
   should_validate_presence_of :site_id
 
   before(:each) do
+    stub_remote_activity
     @site = Factory(:site, :name => 'The Google', :url => 'http://www.google.com')
   end
 
@@ -27,7 +28,7 @@ describe Attempt do
     end
 
     it "should be marked successful for 200 HTTP code" do
-      Curl::Easy.any_instance.stubs(:response_code).returns(200)
+      # Curl::Easy.any_instance.stubs(:response_code).returns(200)
       @attempt.perform!
       @attempt.should be_success
     end

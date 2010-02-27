@@ -19,6 +19,7 @@ describe Site do
   should_have_one  :last_attempt, :class_name => 'Attempt'
 
   it "should be able to check itself" do
+    stub_remote_activity
     site = Factory(:site)
     site.check!
     site.last_attempt.should_not be_blank

@@ -32,3 +32,4 @@ config.gem 'rspec-rails', :lib => false, :version => '~>1.3.1'
 config.gem 'remarkable_rails', :lib => false, :version => '~>3.1.12'
 config.gem 'webrat', :lib => false, :version => '~>0.7.0'
 config.gem "factory_girl", :version => '~>1.2.3'
+config.gem "email_spec"
