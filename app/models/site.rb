@@ -15,8 +15,8 @@
 class Site < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   has_many :attempts, :dependent => :destroy
-  has_many :performed_attempts, :class_name => 'Attempt', :conditions => {:status => 'performed'}
-  has_one  :last_attempt, :class_name => 'Attempt', :conditions => {:status => 'performed'}
+  has_many :performed_attempts, :class_name => 'Attempt', :conditions => {:status => 'performed'}, :order => 'attempts.updated_at DESC'
+  has_one  :last_attempt, :class_name => 'Attempt', :conditions => {:status => 'performed'}, :order => 'attempts.updated_at DESC'
 
   after_create :check!
 
