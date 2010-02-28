@@ -9,3 +9,13 @@ Feature: Notifications
       | Woobly | http://www.woobly.com |
     When "Woobly" has an unsuccessful attempt
     Then "servers@neotericdesign.com" should have 1 email
+
+
+  Scenario: Only one notification per site
+    Given the following site:
+      | name      | url                     |
+      | Blue Bird | http://www.bluebird.com |
+    When "Blue Bird" has an unsuccessful attempt
+    Then "servers@neotericdesign.com" should have 1 email
+    When "Blue Bird" has another unsuccessful attempt
+    Then "servers@neotericdesign.com" should have 1 email

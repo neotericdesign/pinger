@@ -16,6 +16,8 @@ class Attempt < ActiveRecord::Base
   validates_presence_of :site_id
   attr_reader :response
 
+  default_scope :order => 'attempts.updated_at DESC'
+
   def perform!
     build_request
     @response.perform

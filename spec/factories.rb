@@ -5,4 +5,5 @@ end
 
 Factory.define :attempt do |f|
   f.association :site
+  f.success     true
 end

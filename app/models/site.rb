@@ -15,7 +15,8 @@
 class Site < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   has_many :attempts, :dependent => :destroy
-  has_one  :last_attempt, :class_name => 'Attempt', :conditions => {:status => 'performed'}, :order => 'updated_at DESC'
+  has_many :performed_attempts, :class_name => 'Attempt', :conditions => {:status => 'performed'}
+  has_one  :last_attempt, :class_name => 'Attempt', :conditions => {:status => 'performed'}
 
   after_create :check!
 
@@ -28,7 +29,16 @@ class Site < ActiveRecord::Base
     attempts.create(:status => 'queued').perform!
   end
 
+  def previous_attempt
+    @previous_attempt ||= performed_attempts.first(:limit => 1, :offset => 1)
+  end
+
   def self.check_all!
     self.all.each(&:check!)
+  end
+
+  def deliver_site_down_if_needed
+   return if previous_attempt && previous_attempt.failure?
+   Notification.deliver_site_down_notification(self)
   end
 end
