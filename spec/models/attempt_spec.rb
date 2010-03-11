@@ -39,6 +39,12 @@ describe Attempt do
       @attempt.should be_failure
     end
 
+    it "should rescue Curl Errors, marking a failure" do
+      Curl::Easy.any_instance.stubs(:perform).raises(Curl::Err::TimeoutError)
+      @attempt.perform!
+      @attempt.should be_failure
+    end
+
     context "when site has keystone" do
       before do
         @site.stubs(:keystone).returns("text to find")

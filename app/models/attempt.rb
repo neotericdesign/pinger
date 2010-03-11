@@ -22,6 +22,9 @@ class Attempt < ActiveRecord::Base
     build_request
     @response.perform
     self.success = response_successful?
+  rescue
+    self.success = false
+  ensure
     self.status = 'performed'
     self.save
   end
