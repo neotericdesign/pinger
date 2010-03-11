@@ -8,3 +8,4 @@ coverage/*
 features_rcov/
 rerun.txt
 .cap_tasks~
+config/settings.yml

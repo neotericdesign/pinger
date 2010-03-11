@@ -6,5 +6,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password
+
+  before_filter :authenticate
+
+  protected
+
+  def authenticate
+    if AppConfig.authenticate
+      authenticate_or_request_with_http_basic do |username, password|
+        username == AppConfig.authentication['username'] && password == AppConfig.authentication['password']
+      end
+    end
+  end
 end
