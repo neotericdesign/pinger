@@ -1,5 +1,13 @@
 class SitesController < InheritedResources::Base
 
+  def create
+    create! { sites_path }
+  end
+
+  def update
+    update!{ sites_path }
+  end
+
   ##
   # POST /sites/1/check
   def check
