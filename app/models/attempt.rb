@@ -45,6 +45,10 @@ class Attempt < ActiveRecord::Base
   end
   alias :title :to_str
 
+  def self.prune_old_records
+    self.destroy_all(['updated_at < ? AND success = ?', 2.weeks.ago, false])
+    self.destroy_all(['updated_at < ? AND success = ?', 1.week.ago, true])
+  end
 
   protected
   def response_successful?
