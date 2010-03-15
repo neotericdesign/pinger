@@ -36,6 +36,7 @@ class Attempt < ActiveRecord::Base
   def build_request
     @response ||= Curl::Easy.new(site.url) do |c|
       c.follow_location = true
+      c.connect_timeout = 25
     end
   end
 

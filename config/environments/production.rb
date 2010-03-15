@@ -30,5 +30,6 @@ ActionMailer::Base.sendmail_settings = {
     :location       => '/usr/sbin/sendmail',
     :arguments      => '-i -t'
   }
+
 # Enable threaded mode
-# config.threadsafe!
+config.threadsafe!
