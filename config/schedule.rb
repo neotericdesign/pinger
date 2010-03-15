@@ -23,3 +23,6 @@ every 15.minutes do
   runner 'Site.check_all!'
 end
 
+every 1.day do
+  runner "Attempt.prune_old_records"
+end
