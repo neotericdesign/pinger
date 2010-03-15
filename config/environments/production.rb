@@ -23,6 +23,12 @@ config.log_level = :debug
 
 # Disable delivery errors, bad email addresses will be ignored
 config.action_mailer.raise_delivery_errors = false
-
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.default_charset = "utf-8"
+ActionMailer::Base.default_content_type = "text/html"
+ActionMailer::Base.sendmail_settings = {
+    :location       => '/usr/sbin/sendmail',
+    :arguments      => '-i -t'
+  }
 # Enable threaded mode
 # config.threadsafe!
